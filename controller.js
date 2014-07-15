@@ -25,47 +25,56 @@ app.controller("RSSReaderController", function($scope){
 			var thisPosts = $scope.feedSites[i].posts;
 
 			if ($scope.feedSites[i].posts == null){
-				//console.log(thisPosts);
+
 				$scope.feedSites[i].posts = [];
 				var feedURL = $scope.feedSites[i].RSS;
-				httpRequest.open('GET', feedURL, false);
-				httpRequest.onreadystatechange = function () {
-					if (httpRequest.readyState == 4) {
-
-						if (httpRequest.status === 200) {
-							var xmldoc = httpRequest.responseXML;
-							if (xmldoc != null) {
-								//console.log("Success: This is XML doc " + thisFeed.Name);
-								
-								var posts = xmldoc.getElementsByTagName('item');
-
-								for (ii=0; ii<=posts.length; ii++) {
-									var post = posts[ii];
-									var postTitle = myParse(post, 'title');
-									var postURL = myParse(post, 'link');
-
-									$scope.feedSites[i].posts.push({
-										Title: postTitle,
-										URL: postURL
-									});
-
-								}
-
-							} else {
-								console.log("Error: responseXML is null.");
-							}
-						} else {
-							console.log("Error: 200 status not achieved.")
-						}
-					}
-				};
-				httpRequest.send(null);
+				modularRequest(feedURL, i);
 
 			}
 		}
 	}
+
+	function modularRequest (url, count) {
+		$.ajax({
+			url: url,
+			type: "GET",
+			dataType: "xml",
+			success: function (xml) {
+				console.log("ajax request successful");
+				getXMLparts(xml, count);
+			},
+			error: function (errorThrown, status, xhr) {
+				console.log("ERROR: request failed");
+				console.log("Error: " + errorThrown);
+				console.log("Status: " + status);
+				console.dir( xhr );
+			},
+			complete: function () {
+				console.log("Request completed.");
+			}
+		});
+	}
+
+	function getXMLparts (xmldoc, count) {
+		var posts = xmldoc.getElementsByTagName('item');
+		for (ii=0; ii<=posts.length; ii++) {
+			var post = posts[ii];
+			var postTitle = myParse(post, 'title');
+			var postURL = myParse(post, 'link');
+
+			pushXMLdata(postTitle, postURL, count);
+		}
+	}
+
 	function myParse (obj, att) {
 		return obj.getElementsByTagName(att).item(0).firstChild.data;
+	}
+
+	function pushXMLdata (postTitle, postLink, count) {
+		$scope.feedSites[count].posts.push({
+			Title: postTitle,
+			URL: postLink
+		});
 	}
 
 
