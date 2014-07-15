@@ -1,0 +1,11 @@
+{
+  "name": "RSS_Feed_AngularJS_AJAX",
+  "version": "0.1.0",
+  "description": "RSS feed reader web app utilizing AngularJS and AJAX",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Conor Kelly",
+  "license": "ISC"
+}
