@@ -5,16 +5,17 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'style.css' : 'style.scss'
+        }
+      },
+      dev: {
+        options: {
+          sourceMap: true
         },
-        dev: {
-          options: {
-            sourceMap: true
-          },
-          files: {
-            'style.css' : 'style.scss'
-          }
+        files: {
+          'style.css' : 'style.scss'
         }
       }
+      
     },
 
     watch: {

@@ -11,23 +11,11 @@ ul.tabList {
     border: 1px solid #ccc;
     border-bottom: 0px; }
     ul.tabList li.active {
-      background-color: green; }
+      background-color: #ccc; }
 
-/*ul.tabList > li {
-	list-style: none;
-	display: block;
-	float: left;
-	padding: 5px 10px;
-	margin: 0 5px;
-	cursor: pointer;
-	border: 1px solid #ccc;
-	border-bottom: 0px;
-}
-
-ul.tabList > li.active {
-	background-color: #ccc;
-}*/
 .tabContent {
   clear: both;
   padding: 5px;
   border: 1px solid #ccc; }
+
+/*# sourceMappingURL=style.css.map */
