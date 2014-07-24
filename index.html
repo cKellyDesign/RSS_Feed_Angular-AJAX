@@ -4,82 +4,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
      <script src="app.js" type="text/javascript"></script>
      <script src="controller.js" type="text/javascript"></script>
+     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<script type="text/javascript">
-		var httpRequest;
-		if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-		    httpRequest = new XMLHttpRequest();
-		} else if (window.ActiveXObject) { // IE 8 and older
-		    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-
-		function listFeed (doc) {
-
-			// document.getElementById("feedTitle").innerHTML = doc.getElementsByTagName('title').item(0).firstChild.data;
-			
-			// var posts = doc.getElementsByTagName('item');
-
-			// for (i=0; i<=posts.length; i++) {
-			// 	var post = posts[i];
-			// 	var postTitle = post.getElementsByTagName('title').item(0).firstChild.data;
-			// 	var postURL = post.getElementsByTagName('link').item(0).firstChild.data;
-				
-			// 	var newLi = document.createElement('li');
-			// 	newLi.innerHTML = '<a href="' + postURL + '" target="_blank">' + postTitle + '</a>';
-			// 	document.getElementById("postList").appendChild(newLi);
-			// }
-
-		}
-
-		
-
-		// var invocation = new XMLHttpRequest();
-		// var feedURL = 'universeToday.xml';
-		// var feedURL = 'msnbc.xml';
-
-		// httpRequest.open('GET', feedURL, true);
-		// httpRequest.onreadystatechange = function () {
-		// 	if (httpRequest.readyState == 4) {
-		// 		if(httpRequest.status === 200) {
-
-		// 			var xmldoc = httpRequest.responseXML;
-		// 			if (xmldoc != null) {
-		// 				listFeed(xmldoc);
-		// 			} else {
-		// 				console.log("something is def wrong.");
-		// 			}
-
-		// 		} else {
-		// 			console.log(httpRequest.status);
-		// 		}
-		// 	} 
-		// };
-		// httpRequest.send(null);
-
-	</script>
-
-
-
+	
 	<div id="content" ng-app='RSSReaderApp' ng-controller='RSSReaderController'>
-		<script type="text/javascript">
-		</script>
-		<form action ng-click='feedInit()'>
-			<select ng-model='selectedFeed' ng-options="feedSite.Name for feedSite in feedSites">
-				<option value="">Choose Feed</option>
-			</select>
-			<!-- <button ng-click='feedInit()'>Initiate Feeds</button> -->
-		</form>
-		<br>
-		
-		<h3 id="feedTitle">{{selectedFeed.Name}}</h3>
 
-		<ul>
-			<li ng-repeat='post in selectedFeed.posts'>
-				<a href={{post.URL}} target="_blank">{{post.Title}}</a>
+		<ul class="tabList">
+			<li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.cont)}" ng-click="onClickTab(tab)">
+				{{tab.title}}
 			</li>
 		</ul>
+		<div class="tabContent">
+			<div ng-include="currentTab"></div>
+		</div>
 
+		<script type="text/ng-template" id="tabCont1">
+			<form action ng-click='feedInit()'>
+				<select ng-model='selectedFeed' ng-options="feedSite.Name for feedSite in feedSites">
+					<option value="">Choose Feed</option>
+				</select>
+				<!-- <button ng-click='feedInit()'>Initiate Feeds</button> -->
+			</form>
+			<br>
+			
+			<h3 id="feedTitle">{{selectedFeed.Name}}</h3>
+
+			<ul>
+				<li ng-repeat='post in selectedFeed.posts'>
+					<a href={{post.URL}} target="_blank">{{post.Title}}</a>
+				</li>
+			</ul>
+		</script>
+		<script type="text/ng-template" id="tabCont2">
+			<h3>This is tab two</h3>
+		</script>
 	</div>
 
 </body>

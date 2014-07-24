@@ -1,4 +1,23 @@
 app.controller("RSSReaderController", function($scope){
+
+	$scope.tabs = [
+		{
+			title: 'Select From List',
+			cont: 'tabCont1'
+		},
+		{
+			title: 'Upload XML',
+			cont: 'tabCont2'
+		}
+	];
+	$scope.currentTab = 'tabCont1';
+	$scope.onClickTab = function (tab) {
+		$scope.currentTab = tab.cont;
+	}
+	$scope.isActiveTab = function (tabCont) {
+		return tabCont == $scope.currentTab;
+	}
+
 	$scope.selectedFeed = "";
 	$scope.feedSites = [
 		{
