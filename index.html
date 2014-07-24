@@ -20,6 +20,7 @@
 		</div>
 
 		<script type="text/ng-template" id="tabCont1">
+			<h3>Select a Feed</h3>
 			<form action ng-click='feedInit()'>
 				<select ng-model='selectedFeed' ng-options="feedSite.Name for feedSite in feedSites">
 					<option value="">Choose Feed</option>
@@ -37,7 +38,11 @@
 			</ul>
 		</script>
 		<script type="text/ng-template" id="tabCont2">
-			<h3>This is tab two</h3>
+			<h3>Upload a Feed (xml format for now!)</h3>
+			<form novalidate class="xmlUploadForm">
+				Feed Name: <input type="text" ng-model="file.name"><br>
+				Feed URL: <input type="file" ng-model="file.url">
+			</form>
 		</script>
 	</div>
 

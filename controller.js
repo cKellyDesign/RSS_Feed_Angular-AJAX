@@ -4,11 +4,11 @@ app.controller("RSSReaderController", function($scope){
 		{
 			title: 'Select From List',
 			cont: 'tabCont1'
-		},
-		{
-			title: 'Upload XML',
-			cont: 'tabCont2'
-		}
+		 }//,
+		// {
+		// 	title: 'Upload XML',
+		// 	cont: 'tabCont2'
+		// }
 	];
 	$scope.currentTab = 'tabCont1';
 	$scope.onClickTab = function (tab) {
@@ -95,6 +95,7 @@ app.controller("RSSReaderController", function($scope){
 			URL: postLink
 		});
 	}
+
 
 
 });
