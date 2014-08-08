@@ -10,6 +10,12 @@ app.controller("RSSReaderController", function($scope){
 		// 	cont: 'tabCont2'
 		// }
 	];
+	// &scope.defineTags = function () {
+	// 	document.createElement('article');
+	// }
+
+	document.createElement('article');
+
 	$scope.currentTab = 'tabCont1';
 	$scope.onClickTab = function (tab) {
 		$scope.currentTab = tab.cont;

@@ -29,10 +29,10 @@ article {
 	display: block;
 }
 
-#test-title {
+.test-title {
 	color: red;
 
-	#test-block & {
+	.test-block & {
 		color: green;
 	}
 }
