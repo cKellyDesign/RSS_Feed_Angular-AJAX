@@ -23,3 +23,16 @@ ul.tabList {
 	padding: 5px;
 	border: 1px solid #ccc;
 }
+
+/* Testing HTML5 tag in IE8 */
+article {
+	display: block;
+}
+
+#test-title {
+	color: red;
+
+	#test-block & {
+		color: green;
+	}
+}
