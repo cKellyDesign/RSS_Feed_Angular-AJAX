@@ -10,7 +10,7 @@ app.controller("RSSReaderController", function($scope){
 		// 	cont: 'tabCont2'
 		// }
 	];
-	&scope.defineTags = function () {
+	$scope.defineTags = function () {
 		// document.createElement('article');
 		// document.createElement('section');
 		// document.createElement('main');
@@ -19,13 +19,11 @@ app.controller("RSSReaderController", function($scope){
 		// alert("it works");
 	}
 
-	
-
-	document.createElement('article');
 
 	$scope.currentTab = 'tabCont1';
 	$scope.onClickTab = function (tab) {
 		$scope.currentTab = tab.cont;
+
 	}
 	$scope.isActiveTab = function (tabCont) {
 		return tabCont == $scope.currentTab;
@@ -64,6 +62,7 @@ app.controller("RSSReaderController", function($scope){
 
 			}
 		}
+		shout();
 	}
 
 	function modularRequest (url, count) {

@@ -5,6 +5,10 @@ function initTags () {
  	document.createElement('section');
  	document.createElement('main');
  	document.createElement('footer');
- }
+}
+
+function shout () {
+	alert("shout!");
+}
  
 
