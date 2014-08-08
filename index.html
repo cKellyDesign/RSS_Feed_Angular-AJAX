@@ -6,13 +6,9 @@
      <script src="controller.js" type="text/javascript"></script>
      <link rel="stylesheet" type="text/css" href="style.css">
 
-     <script type="text/javascript">
-     	document.createElement('article');
-     	document.createElement('section');
-     	document.createElement('nav');
-     	document.createElement('main');
-     	document.createElement('footer');
-     </script>
+	<script type="text/javascript">
+		initTags();
+	</script>
 
 </head>
 <body>
@@ -55,27 +51,25 @@
 		</script>
 	</div>
 
+<!-- <div class="container" data-ng-controller="RSSReaderController" data-ng-init="defineTags()"> -->
 	<article class="test-block">
 		<h1 class="test-title">What color am I?</h1>
 		<p>If green, the article is being recognized, if red it has not.</p>
 	</article>
 	<main class="test-block">
 		<h1 class="test-title">What color am I?</h1>
-		<p>If green, the section is being recognized, if red it has not.</p>
+		<p>If green, the main is being recognized, if red it has not.</p>
 	</main>
-	<nav class="test-block">
+	<section class="test-block">
 		<h1 class="test-title">What color am I?</h1>
 		<p>If green, the section is being recognized, if red it has not.</p>
-	</nav>
+	</section>
 
 	<footer class="test-block">
 		<h1 class="test-title">What color am I?</h1>
-		<p>If green, the section is being recognized, if red it has not.</p>
+		<p>If green, the footer is being recognized, if red it has not.</p>
 	</footer>
-
-<!--	<script type="text/javascript">
-		document.createElement('footer');
-	</script> -->
+<!-- </div> -->
 
 </body>
 </html>

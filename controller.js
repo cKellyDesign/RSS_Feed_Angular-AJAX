@@ -10,9 +10,16 @@ app.controller("RSSReaderController", function($scope){
 		// 	cont: 'tabCont2'
 		// }
 	];
-	// &scope.defineTags = function () {
-	// 	document.createElement('article');
-	// }
+	&scope.defineTags = function () {
+		// document.createElement('article');
+		// document.createElement('section');
+		// document.createElement('main');
+		// document.createElement('footer');
+
+		// alert("it works");
+	}
+
+	
 
 	document.createElement('article');
 
